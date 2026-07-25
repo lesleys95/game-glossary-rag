@@ -1,0 +1,47 @@
+# ============ Python ============
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# ============ ChromaDB ============
+# 向量数据库（本地生成，不传）
+chroma_db/
+# Chroma 日志
+.chroma/
+
+# ============ 模型和缓存 ============
+# 嵌入模型（471MB，太大且不通用，不传）
+models/
+# HuggingFace 缓存
+C:/Users/24418/.cache/huggingface/
+~/.cache/huggingface/
+
+# ============ 数据文件 ============
+# 真实术语库（含公司数据，不传）
+data/raw/
+# 所有 CSV（除了 sample 样例）
+*.csv
+!data/sample/sample_terms.csv
+
+# ============ 环境变量 ============
+.env
+.env.local
+
+# ============ IDE ============
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ============ 系统文件 ============
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# ============ 日志 ============
+*.log
+logs/

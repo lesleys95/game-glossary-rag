@@ -1,0 +1,7 @@
+﻿term_key,zh_cn,en_us,category,game,variables
+prime_burning_duration,战技附加的点燃时长+{i18n0}%,Duration of Burning inflicted by Prime +{i18n0}%,战斗数值,Super Snail,i18n0
+prime_crit_dmg,暴击伤害提高{i18n0}%,Critical Damage increased by {i18n0}%,战斗数值,Super Snail,i18n0
+snail_speed_buff,移动速度提升{i18n0}%，持续{i18n1}秒,Movement Speed increased by {i18n0}% for {i18n1}s,战斗增益,Super Snail,"i18n0,i18n1"
+mortal_strike_effect,受到的治疗效果降低{i18n0}%,Healing received reduced by {i18n0}%,减益效果,Super Snail,i18n0
+gumballs_fire_dmg,火焰系伤害+i18n0,Fire damage +i18n0,Roguelike词条,Gumballs & Dungeons,i18n0
+gumballs_potions_drop,药水掉落率+i18n0%,Potion drop rate +{i18n0}%,Roguelike词条,Gumballs & Dungeons,i18n0
