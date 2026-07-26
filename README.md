@@ -59,14 +59,22 @@ huggingface-cli download sentence-transformers/paraphrase-multilingual-MiniLM-L1
    - `config.json`, `tokenizer_config.json`, `special_tokens_map.json`
 3. Place them in `models/paraphrase-multilingual-MiniLM-L12-v2/`
 
-Verify your structure:
-game-glossary-rag/
-└── models/
-└── paraphrase-multilingual-MiniLM-L12-v2/
-├── pytorch_model.bin
-├── sentencepiece.bpe.model
-├── tokenizer.json
-└── ... (other config files)
+Verify your structure:  
+
+game-glossary-rag/  
+
+└── models/  
+
+└── paraphrase-multilingual-MiniLM-L12-v2/  
+
+├── pytorch_model.bin  
+
+├── sentencepiece.bpe.model  
+
+├── tokenizer.json  
+
+└── ... (other config files)  
+
 ---
 
 ### Build the Vector Store
@@ -89,7 +97,8 @@ text
 
 📁 数据库位置: D:\game-glossary-rag\game-glossary-rag\chroma_db  
 
-🧪 测试检索 'Prime 的点燃时长': 结果: Key: prime_burning_duration ...
+🧪 测试检索 'Prime 的点燃时长': 结果: Key: prime_burning_duration ...  
+
 ---
 
 ### Start Querying
@@ -112,7 +121,8 @@ text
 
 中文: 战技附加的点燃时长+{i18n0}%  
 
-English: Duration of Burning inflicted by Prime +{i18n0}%
+English: Duration of Burning inflicted by Prime +{i18n0}%  
+
 ---
 
 ## 📊 Example Queries
@@ -202,7 +212,8 @@ game-glossary-rag/
 │ └── paraphrase-multilingual-MiniLM-L12-v2/  
 
 │
-└── chroma_db/ # ⚠️ gitignored, auto-generated
+└── chroma_db/ # ⚠️ gitignored, auto-generated  
+
 ---
 
 ## ➕ Adding Your Own Terms
@@ -241,7 +252,8 @@ Install with:
 
 cmd  
 
-python -m pip install -r requirements.txt
+python -m pip install -r requirements.txt  
+
 ---
 
 ## 🎯 Use Cases
