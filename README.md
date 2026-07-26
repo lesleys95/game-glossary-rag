@@ -29,12 +29,18 @@ Solves the classic pain point: players say "皇子" but your glossary only has "
 - ~500MB disk space for the embedding model
 
 ### Installation
-bash
-Clone the repo
-git clone https://github.com/lesleys95/game-glossary-rag.git
-cd game-glossary-rag
-Install dependencies
-python -m pip install -r requirements.txt
+bash  
+
+Clone the repo  
+
+git clone https://github.com/lesleys95/game-glossary-rag.git  
+
+cd game-glossary-rag  
+
+Install dependencies  
+
+python -m pip install -r requirements.txt  
+
 > **Note**: If you encounter encoding issues on Windows, ensure your terminal uses UTF-8:
 > ```cmd
 > chcp 65001
@@ -47,8 +53,10 @@ python -m pip install -r requirements.txt
 The embedding model (`paraphrase-multilingual-MiniLM-L12-v2`) must be downloaded manually due to network restrictions:
 
 #### Option 1: Download via mirror (Recommended)
-cmd
-set HF_ENDPOINT=https://hf-mirror.com
+cmd  
+
+set HF_ENDPOINT=https://hf-mirror.com  
+
 huggingface-cli download sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2 --local-dir ./models/paraphrase-multilingual-MiniLM-L12-v2
 #### Option 2: Manual download
 1. Visit [hf-mirror.com/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2](https://hf-mirror.com/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2)
@@ -233,15 +241,22 @@ game-glossary-rag/
 ## ➕ Adding Your Own Terms
 
 1. Create a new CSV file in `data/raw/`:
-csv
-term_key,zh_cn,en_us,category,game,variables
-my_new_term,中文翻译,English Translation,UI文本,My Game,i18n0
+
+csv  
+
+term_key,zh_cn,en_us,category,game,variables  
+
+my_new_term,中文翻译,English Translation,UI文本,My Game,i18n0  
+
 2. Update `CSV_PATH` in `embed_store.py`:
 python
-CSV_PATH = r"D:\game-glossary-rag\game-glossary-rag\data\raw\your_terms.csv"
+
+CSV_PATH = r"D:\game-glossary-rag\game-glossary-rag\data\raw\your_terms.csv"  
+
 3. Rebuild:
-cmd
-python embed_store.py
+
+python embed_store.py  
+
 ---
 
 ## 📋 requirements.txt
@@ -284,10 +299,13 @@ python -m pip install -r requirements.txt
 ## 🐛 Troubleshooting
 
 ### `ModuleNotFoundError: No module named 'pandas'`
-cmd
-python -m pip install pandas
+cmd  
+
+python -m pip install pandas  
+
 ### `UnicodeDecodeError` when reading CSV
-Ensure your CSV is saved as UTF-8 (not ANSI/GBK):
+Ensure your CSV is saved as UTF-8 (not ANSI/GBK):  
+
 - Notepad → Save As → Encoding: UTF-8
 - Or use VS Code (recommended)
 
