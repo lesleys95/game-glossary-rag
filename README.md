@@ -76,13 +76,19 @@ cd src
 python embed_store.py
 *Expected output:*
 text
-🎮 游戏术语库 RAG - 向量入库工具 📋
-✅ 加载了 6 条术语
-🗑️ 已删除旧集合 game_glossary
-🧠 加载嵌入模型...
-✅ 模型加载完成
-🔄 向量化 6 条术语... 100%
-📁 数据库位置: D:\game-glossary-rag\game-glossary-rag\chroma_db
+🎮 游戏术语库 RAG - 向量入库工具 📋  
+✅ 加载了 6 条术语  
+
+🗑️ 已删除旧集合 game_glossary  
+
+🧠 加载嵌入模型...  
+
+✅ 模型加载完成  
+
+🔄 向量化 6 条术语... 100%  
+
+📁 数据库位置: D:\game-glossary-rag\game-glossary-rag\chroma_db  
+
 🧪 测试检索 'Prime 的点燃时长': 结果: Key: prime_burning_duration ...
 ---
 
@@ -92,26 +98,41 @@ cmd
 python query.py
 *Example session:*
 text
-🎮 游戏术语库 RAG - 交互查询 📊
-当前库中有 6 条术语
-输入 'quit' 退出 输入 'help' 查看示例查询
-查询> Prime 点燃
-🎯 找到 3 条结果:
-【prime_burning_duration】(Super Snail / 战斗数值) 相似度: 87.42%
-中文: 战技附加的点燃时长+{i18n0}%
+🎮 游戏术语库 RAG - 交互查询 📊  
+
+当前库中有 6 条术语  
+
+输入 'quit' 退出 输入 'help' 查看示例查询  
+
+查询> Prime 点燃  
+
+🎯 找到 3 条结果:  
+
+【prime_burning_duration】(Super Snail / 战斗数值) 相似度: 87.42%  
+
+中文: 战技附加的点燃时长+{i18n0}%  
+
 English: Duration of Burning inflicted by Prime +{i18n0}%
 ---
 
 ## 📊 Example Queries
 
-| Query | What You Get |
-|-------|-------------|
-| `Prime 的点燃时长` | `战技附加的点燃时长+{i18n0}%` |
-| `暴击伤害` | `暴击伤害提高{i18n0}%` |
-| `移动速度 buff` | `移动速度提升{i18n0}%，持续{i18n1}秒` |
-| `burning duration` | `Duration of Burning inflicted by Prime +{i18n0}%` |
-| `药水掉落` | `药水掉落率+i18n0%` |
-| `potion drop rate` | `Potion drop rate +{i18n0}%` |
+| Query | What You Get |  
+
+|-------|-------------|  
+
+| `Prime 的点燃时长` | `战技附加的点燃时长+{i18n0}%` |  
+
+| `暴击伤害` | `暴击伤害提高{i18n0}%` |  
+
+| `移动速度 buff` | `移动速度提升{i18n0}%，持续{i18n1}秒` |  
+
+| `burning duration` | `Duration of Burning inflicted by Prime +{i18n0}%` |  
+
+| `药水掉落` | `药水掉落率+i18n0%` |  
+
+| `potion drop rate` | `Potion drop rate +{i18n0}%` |  
+
 
 ---
 
@@ -119,13 +140,20 @@ English: Duration of Burning inflicted by Prime +{i18n0}%
 
 mermaid
 graph LR
-    A[User Query: "Prime 点燃"] --> B(query.py);
-    B --> C{Encode query};
-    C --> D[Embedding Model];
-    D --> E[Vector search in ChromaDB];
-    F[sample_terms.csv] --> G(embed_store.py);
-    G --> E;
-    E --> H(Return Results);
+    A[User Query: "Prime 点燃"] --> B(query.py);  
+    
+    B --> C{Encode query};  
+    
+    C --> D[Embedding Model];  
+    
+    D --> E[Vector search in ChromaDB];  
+    
+    F[sample_terms.csv] --> G(embed_store.py);  
+    
+    G --> E;  
+    
+    E --> H(Return Results);  
+    
     H --> B;
 ---
 
@@ -142,23 +170,37 @@ graph LR
 ---
 
 ## 📁 Project Structure
-game-glossary-rag/
-├── .gitignore # Excludes chroma_db/, models/, venv/
-├── README.md # You're reading it
-├── demo.gif # Demo animation
-├── requirements.txt # Dependency list
+game-glossary-rag/  
+
+├── .gitignore # Excludes chroma_db/, models/, venv/  
+
+├── README.md # You're reading it  
+
+├── demo.gif # Demo animation  
+
+├── requirements.txt # Dependency list  
+
 │
-├── data/
-│ └── sample/
-│ └── sample_terms.csv # Sample glossary (6 terms)
+├── data/  
+
+│ └── sample/  
+
+│ └── sample_terms.csv # Sample glossary (6 terms)  
+
 │
-├── src/
-│ ├── embed_store.py # Vector indexing pipeline
-│ ├── query.py # Interactive query CLI
-│ └── download_model.py # Helper script for model download
+├── src/  
+
+│ ├── embed_store.py # Vector indexing pipeline  
+
+│ ├── query.py # Interactive query CLI  
+
+│ └── download_model.py # Helper script for model download  
+
 │
-├── models/ # ⚠️ gitignored, download separately
-│ └── paraphrase-multilingual-MiniLM-L12-v2/
+├── models/ # ⚠️ gitignored, download separately  
+
+│ └── paraphrase-multilingual-MiniLM-L12-v2/  
+
 │
 └── chroma_db/ # ⚠️ gitignored, auto-generated
 ---
@@ -179,16 +221,26 @@ python embed_store.py
 
 ## 📋 requirements.txt
 
-Create this file in the project root:
-txt
-chromadb>=0.4.0
-sentence-transformers>=2.2.0
-rank-bm25>=0.2.0
-jieba>=0.42.0
-pandas>=2.0.0
-huggingface-hub>=0.20.0
-Install with:
-cmd
+Create this file in the project root:  
+
+txt  
+
+chromadb>=0.4.0  
+
+sentence-transformers>=2.2.0  
+
+rank-bm25>=0.2.0  
+
+jieba>=0.42.0  
+
+pandas>=2.0.0  
+
+huggingface-hub>=0.20.0  
+
+Install with:  
+
+cmd  
+
 python -m pip install -r requirements.txt
 ---
 
