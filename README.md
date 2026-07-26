@@ -204,7 +204,8 @@ Traditional MTPE relies on human editors catching errors after the fact. Our app
 | **Embedding Model** | [paraphrase-multilingual-MiniLM-L12-v2](https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2) | 384-dim, 50+ languages, fast inference |
 | **Data Processing** | Pandas | CSV handling, cleaning pipelines |
 | **Tokenization** | Jieba | Chinese word segmentation |
-| **Runtime** | Python 3.14 | Latest stable |
+| **Runtime** | Python 3.14 | Latest stable |  
+
 ┌─────────────────────────────────────────────────────────────┐  
 
 │ AIPE Pipeline │  
@@ -294,7 +295,8 @@ If novel terminology appears in new game builds:
 → Ingest into ChromaDB via embed_store.py  
 
 → Re-evaluate coverage  
-**③ Sampling Strategy Adjustment**
+**③ Sampling Strategy Adjustment**  
+
 High-risk content (legal text, monetization UI, cultural flashpoints)  
 
 → Increase sampling rate from 5% → 20%  
