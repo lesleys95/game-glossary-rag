@@ -70,61 +70,36 @@ game-glossary-rag/
 ---
 
 ### Build the Vector Store
+bash
 cmd
 cd src
 python embed_store.py
-Expected output:
-🎮 游戏术语库 RAG - 向量入库工具
-📋 CSV 列名: ['term_key', 'zh_cn', 'en_us', 'category', 'game', 'variables']
+*Expected output:*
+text
+🎮 游戏术语库 RAG - 向量入库工具 📋
 ✅ 加载了 6 条术语
 🗑️ 已删除旧集合 game_glossary
-📥 加载嵌入模型...
+🧠 加载嵌入模型...
 ✅ 模型加载完成
-🔄 向量化 6 条术语...
-100%|████████████████████| 6/6 [00:02<00:00, 2.31it/s]
-✅ 成功入库 6 条术语到 ChromaDB
+🔄 向量化 6 条术语... 100%
 📁 数据库位置: D:\game-glossary-rag\game-glossary-rag\chroma_db
-🧪 测试检索 'Prime 的点燃时长':
-结果:
-Key: prime_burning_duration
-中文: 战技附加的点燃时长+{i18n0}%
-English: Duration of Burning inflicted by Prime +{i18n0}%
-分类: 战斗数值
-所属游戏: Super Snail
-变量: i18n0
-✅ 命中: prime_burning_duration
-🎉 全部完成！可以运行 query.py 开始检索了
+🧪 测试检索 'Prime 的点燃时长': 结果: Key: prime_burning_duration ...
 ---
 
 ### Start Querying
+bash
 cmd
 python query.py
-Example session:
-📥 加载嵌入模型...
-✅ 模型加载完成
-🎮 游戏术语库 RAG - 交互查询
-📊 当前库中有 6 条术语
-输入 'quit' 退出
-输入 'help' 查看示例查询
-查询> Prime 的点燃时长
+*Example session:*
+text
+🎮 游戏术语库 RAG - 交互查询 📊
+当前库中有 6 条术语
+输入 'quit' 退出 输入 'help' 查看示例查询
+查询> Prime 点燃
 🎯 找到 3 条结果:
-【prime_burning_duration】(Super Snail / 战斗数值)
-相似度: 87.42%
+【prime_burning_duration】(Super Snail / 战斗数值) 相似度: 87.42%
 中文: 战技附加的点燃时长+{i18n0}%
 English: Duration of Burning inflicted by Prime +{i18n0}%
-变量: i18n0
-【prime_crit_dmg】(Super Snail / 战斗数值)
-相似度: 72.15%
-中文: 暴击伤害提高{i18n0}%
-English: Critical Damage increased by {i18n0}%
-变量: i18n0
-【snail_speed_buff】(Super Snail / 战斗增益)
-相似度: 68.93%
-中文: 移动速度提升{i18n0}%，持续{i18n1}秒
-English: Movement Speed increased by {i18n0}% for {i18n1}s
-变量: i18n0,i18n1
-查询> quit
-👋 再见！
 ---
 
 ## 📊 Example Queries
@@ -141,25 +116,17 @@ English: Movement Speed increased by {i18n0}% for {i18n1}s
 ---
 
 ## 🏗️ Architecture
----
 
-┌─────────────────┐ ┌──────────────────┐ ┌─────────────────┐
-│ sample_terms.csv│───▶│ embed_store.py │───▶│ ChromaDB │
-│ (6 terms) │ │ • Clean & dedup │ │ (Local vector │
-└─────────────────┘ │ • Encode & store│ │ database) │
-└──────────────────┘ └─────────────────┘
-│
-┌─────────────────┐ ┌──────────────────┐ │
-│ User Query │───▶│ query.py │◀─────────────┘
-│ "Prime 点燃" │ │ • Encode query │
-└─────────────────┘ │ • Vector search │
-│ • Return top-K │
-└──────────────────┘
-│
-┌──────▼──────┐
-│ Results │
-│ + Similarity│
-└─────────────┘
+mermaid
+graph LR
+    A[User Query: "Prime 点燃"] --> B(query.py);
+    B --> C{Encode query};
+    C --> D[Embedding Model];
+    D --> E[Vector search in ChromaDB];
+    F[sample_terms.csv] --> G(embed_store.py);
+    G --> E;
+    E --> H(Return Results);
+    H --> B;
 ---
 
 ## 🛠️ Tech Stack
