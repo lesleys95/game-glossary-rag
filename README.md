@@ -206,6 +206,7 @@ Traditional MTPE relies on human editors catching errors after the fact. Our app
 | **Tokenization** | Jieba | Chinese word segmentation |
 | **Runtime** | Python 3.14 | Latest stable |  
 
+  
 ┌─────────────────────────────────────────────────────────────┐  
 
 │ AIPE Pipeline │  
@@ -277,7 +278,7 @@ Each error is weighted by severity, enabling quantitative tracking of AIPE impro
 
 Evaluation results feed back into the AIPE pipeline through three mechanisms:
 
-**① Prompt Engineering Refinement**
+**① Prompt Engineering Refinement**  
 If MQM audit reveals recurring terminology errors in Category X:  
 
 → Update LLM system prompt with explicit constraints  
@@ -296,7 +297,6 @@ If novel terminology appears in new game builds:
 
 → Re-evaluate coverage  
 **③ Sampling Strategy Adjustment**  
-
 High-risk content (legal text, monetization UI, cultural flashpoints)  
 
 → Increase sampling rate from 5% → 20%  
