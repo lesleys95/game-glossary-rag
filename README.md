@@ -78,13 +78,20 @@ game-glossary-rag/
 ---
 
 ### Build the Vector Store
-bash
-cmd
-cd src
-python embed_store.py
-*Expected output:*
-text
-🎮 游戏术语库 RAG - 向量入库工具 📋  
+bash  
+
+cmd  
+
+cd src  
+
+python embed_store.py  
+
+*Expected output:*  
+
+text  
+
+🎮 游戏术语库 RAG - 向量入库工具 📋    
+
 ✅ 加载了 6 条术语  
 
 🗑️ 已删除旧集合 game_glossary  
@@ -102,11 +109,16 @@ text
 ---
 
 ### Start Querying
-bash
-cmd
-python query.py
-*Example session:*
-text
+bash  
+
+cmd  
+
+python query.py  
+
+*Example session:*  
+
+text  
+
 🎮 游戏术语库 RAG - 交互查询 📊  
 
 当前库中有 6 条术语  
@@ -148,8 +160,10 @@ English: Duration of Burning inflicted by Prime +{i18n0}%
 
 ## 🏗️ Architecture
 
-mermaid
-graph LR
+mermaid  
+
+graph LR  
+
     A[User Query: "Prime 点燃"] --> B(query.py);  
     
     B --> C{Encode query};  
